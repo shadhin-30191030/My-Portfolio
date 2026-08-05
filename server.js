@@ -17,5 +17,4 @@ app.listen(PORT, () => {
   console.log(`Portfolio running at http://localhost:${PORT}`);
 });
 
-// Export the Express API for Vercel (এটি অবশ্যই একদম বাইরে থাকতে হবে)
 module.exports = app;
