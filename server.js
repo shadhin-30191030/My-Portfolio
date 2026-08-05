@@ -4,16 +4,18 @@ const path = require('path');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// Serve static files (index.html, style.css, script.js) from /public
+// Serve static files from /public
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(express.static(__dirname));
 
 // Send index.html for the root route
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
+// Local server
 app.listen(PORT, () => {
   console.log(`Portfolio running at http://localhost:${PORT}`);
-  module.exports = app;
 });
+
+// Export the Express API for Vercel (এটি অবশ্যই একদম বাইরে থাকতে হবে)
+module.exports = app;
